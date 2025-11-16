@@ -1,7 +1,5 @@
 # Intuit Build Challenge
 
-A collection of production-grade Python implementations demonstrating advanced programming concepts, best practices, and professional software engineering.
-
 ## 📚 Assignments
 
 ### [Assignment 1: Producer-Consumer Pattern](./Assignment_1/)
