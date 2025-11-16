@@ -85,7 +85,7 @@ def group_by_sorted(
         {'A': [{'cat': 'A', 'val': 1}, {'cat': 'A', 'val': 3}], 'B': [{'cat': 'B', 'val': 2}]}
     """
     # Sort first to enable itertools.groupby
-    sorted_items = sorted(iterable, key=key_func)
+    sorted_items = sorted(iterable, key=key_func)  # type: ignore[arg-type]
 
     groups: dict[K, list[T]] = {}
     for key, group_iter in itertools_groupby(sorted_items, key=key_func):
@@ -138,7 +138,7 @@ def group_by_multiple(
 
 def nested_group_by(
     iterable: Iterable[T], *key_funcs: Callable[[T], Any]
-) -> dict[Any, Any]:
+) -> Any:
     """
     Create nested grouping structure.
 
@@ -149,7 +149,7 @@ def nested_group_by(
         *key_funcs: Key functions to apply at each nesting level
 
     Returns:
-        Nested dictionary structure
+        Nested dictionary structure, or list if no key functions provided
 
     Time Complexity: O(n * k) where k is number of key functions
     Space Complexity: O(n)

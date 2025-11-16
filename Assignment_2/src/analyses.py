@@ -573,7 +573,7 @@ def analysis_14_price_range_distribution(
     Time Complexity: O(n)
     """
     # Define price range buckets
-    buckets = {
+    buckets: dict[str, dict[str, int | Decimal]] = {
         "Under $50": {"count": 0, "revenue": Decimal(0)},
         "$50-$200": {"count": 0, "revenue": Decimal(0)},
         "$200-$1000": {"count": 0, "revenue": Decimal(0)},
@@ -593,7 +593,8 @@ def analysis_14_price_range_distribution(
         else:
             bucket = "$1000+"
 
-        buckets[bucket]["count"] += 1
-        buckets[bucket]["revenue"] += revenue
+        bucket_data = buckets[bucket]
+        bucket_data["count"] = bucket_data["count"] + 1
+        bucket_data["revenue"] = bucket_data["revenue"] + revenue
 
     return buckets
