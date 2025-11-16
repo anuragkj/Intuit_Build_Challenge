@@ -469,25 +469,7 @@ def main() -> None:
 
         # Demo 4: Large volume
         run_large_volume_demo()
-
-        # Summary
-        print_section_header("Demonstration Summary")
-        print("\n✓ All demonstrations completed successfully!")
-        print("\nKey Achievements:")
-        print("  ✓ Custom thread-safe queue using Lock and Condition")
-        print("  ✓ Producer-consumer pattern with clean architecture")
-        print("  ✓ Graceful shutdown using sentinel pattern")
-        print("  ✓ Multiple concurrent producers and consumers")
-        print("  ✓ High-volume data transfer with no data loss")
-        print("  ✓ FIFO ordering preserved throughout")
-        print("  ✓ Validation against stdlib queue.Queue")
-        print("\nDemonstrated Competencies:")
-        print("  ✓ Thread synchronization (Lock, Condition)")
-        print("  ✓ Concurrent programming (multiple threads)")
-        print("  ✓ Blocking queues (wait/notify mechanism)")
-        print("  ✓ Clean code architecture and best practices")
-        print("=" * 80)
-
+        
     except Exception as e:
         logging.error(f"Demonstration failed: {e}", exc_info=True)
         sys.exit(1)
