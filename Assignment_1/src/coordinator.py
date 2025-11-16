@@ -74,9 +74,7 @@ class Coordinator:
             CoordinatorError: If attempting to add producer while system is running
         """
         if any(p.is_running for p in self.producers):
-            raise CoordinatorError(
-                "Cannot add producer while system is running"
-            )
+            raise CoordinatorError("Cannot add producer while system is running")
 
         self.producers.append(producer)
         logger.debug(
@@ -95,9 +93,7 @@ class Coordinator:
             CoordinatorError: If attempting to add consumer while system is running
         """
         if any(c.is_running for c in self.consumers):
-            raise CoordinatorError(
-                "Cannot add consumer while system is running"
-            )
+            raise CoordinatorError("Cannot add consumer while system is running")
 
         self.consumers.append(consumer)
         logger.debug(
@@ -239,18 +235,10 @@ class Coordinator:
         Aggregates item counts and error counts from all threads into
         the coordinator's metrics object.
         """
-        self.metrics.items_produced = sum(
-            p.items_produced for p in self.producers
-        )
-        self.metrics.items_consumed = sum(
-            c.items_consumed for c in self.consumers
-        )
-        self.metrics.producer_errors = sum(
-            p.errors_encountered for p in self.producers
-        )
-        self.metrics.consumer_errors = sum(
-            c.errors_encountered for c in self.consumers
-        )
+        self.metrics.items_produced = sum(p.items_produced for p in self.producers)
+        self.metrics.items_consumed = sum(c.items_consumed for c in self.consumers)
+        self.metrics.producer_errors = sum(p.errors_encountered for p in self.producers)
+        self.metrics.consumer_errors = sum(c.errors_encountered for c in self.consumers)
 
         logger.debug(
             f"Coordinator '{self.config.name}' collected metrics: {self.metrics}"
@@ -318,10 +306,7 @@ class Coordinator:
         if any(p.is_running for p in self.producers) or any(
             c.is_running for c in self.consumers
         ):
-            raise CoordinatorError(
-                "Cannot reset while threads are running"
-            )
+            raise CoordinatorError("Cannot reset while threads are running")
 
         self.metrics = SystemMetrics()
         logger.debug(f"Coordinator '{self.config.name}' reset")
-

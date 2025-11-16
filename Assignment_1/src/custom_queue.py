@@ -58,9 +58,7 @@ class ThreadSafeQueue(Generic[T]):
         self._not_empty: Condition = Condition(self._lock)
         self._not_full: Condition = Condition(self._lock)
 
-    def put(
-        self, item: T, block: bool = True, timeout: Optional[float] = None
-    ) -> None:
+    def put(self, item: T, block: bool = True, timeout: Optional[float] = None) -> None:
         """
         Put an item into the queue.
 
@@ -106,9 +104,7 @@ class ThreadSafeQueue(Generic[T]):
                     while self._qsize() >= self._maxsize:
                         remaining = endtime - time.time()
                         if remaining <= 0.0:
-                            raise QueueFull(
-                                f"Queue is full - timeout after {timeout}s"
-                            )
+                            raise QueueFull(f"Queue is full - timeout after {timeout}s")
                         self._not_full.wait(remaining)
 
             # Add item to queue
@@ -242,7 +238,5 @@ class ThreadSafeQueue(Generic[T]):
     def __repr__(self) -> str:
         """Return a string representation of the queue."""
         return (
-            f"ThreadSafeQueue(maxsize={self._maxsize}, "
-            f"current_size={self.qsize()})"
+            f"ThreadSafeQueue(maxsize={self._maxsize}, " f"current_size={self.qsize()})"
         )
-

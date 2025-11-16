@@ -2,8 +2,7 @@
 Configuration classes for the producer-consumer system.
 
 This module defines dataclasses for configuring producers, consumers, and
-the overall coordinator. Using dataclasses provides type safety, immutability
-options, and clear configuration interfaces.
+the overall coordinator.
 """
 
 from dataclasses import dataclass, field
@@ -123,4 +122,3 @@ class SystemMetrics:
             f"consumer_errors={self.consumer_errors}, "
             f"duration={self.execution_duration:.3f}s)"
         )
-

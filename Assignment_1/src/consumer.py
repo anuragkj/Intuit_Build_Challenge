@@ -86,9 +86,7 @@ class Consumer:
         if self._is_running:
             raise ConsumerError(f"Consumer '{self.config.name}' is already running")
 
-        self._thread = Thread(
-            target=self._run, name=self.config.name, daemon=True
-        )
+        self._thread = Thread(target=self._run, name=self.config.name, daemon=True)
         self._is_running = True
         self._thread.start()
         logger.info(f"Consumer '{self.config.name}' started")
@@ -134,9 +132,7 @@ class Consumer:
             while self._is_running:
                 try:
                     # Get item from queue
-                    item = self.queue.get(
-                        block=True, timeout=self.config.get_timeout
-                    )
+                    item = self.queue.get(block=True, timeout=self.config.get_timeout)
 
                     # Check for sentinel (shutdown signal)
                     if item is self.sentinel:
@@ -248,4 +244,3 @@ class Consumer:
     def is_running(self) -> bool:
         """Check if the consumer is currently running."""
         return self._is_running
-

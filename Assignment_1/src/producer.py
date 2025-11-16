@@ -86,9 +86,7 @@ class Producer:
         if self._is_running:
             raise ProducerError(f"Producer '{self.config.name}' is already running")
 
-        self._thread = Thread(
-            target=self._run, name=self.config.name, daemon=True
-        )
+        self._thread = Thread(target=self._run, name=self.config.name, daemon=True)
         self._is_running = True
         self._thread.start()
         logger.info(f"Producer '{self.config.name}' started")
@@ -126,9 +124,7 @@ class Producer:
         items are produced, it sends the sentinel value to signal completion.
         Error handling is controlled by the configuration.
         """
-        logger.info(
-            f"Producer '{self.config.name}' starting production from source"
-        )
+        logger.info(f"Producer '{self.config.name}' starting production from source")
 
         try:
             # Produce all items from source
@@ -189,9 +185,7 @@ class Producer:
             QueueFull: If queue is full and timeout expires
         """
         try:
-            self.queue.put(
-                item, block=True, timeout=self.config.put_timeout
-            )
+            self.queue.put(item, block=True, timeout=self.config.put_timeout)
             self._items_produced += 1
 
             # Log at debug level for normal items, reduces log verbosity
@@ -256,4 +250,3 @@ class Producer:
     def is_running(self) -> bool:
         """Check if the producer is currently running."""
         return self._is_running
-

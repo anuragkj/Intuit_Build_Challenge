@@ -61,4 +61,3 @@ class CoordinatorError(Exception):
     """Base exception class for coordinator-related errors."""
 
     pass
-

@@ -6,7 +6,7 @@ the standard library queue.Queue implement, enabling dependency injection and
 interchangeable queue implementations.
 """
 
-from typing import Protocol, TypeVar, Optional
+from typing import Optional, Protocol, TypeVar
 
 # Generic type variable for queue items
 T = TypeVar("T")
@@ -24,9 +24,7 @@ class QueueProtocol(Protocol[T]):
     flexibility in implementation choices.
     """
 
-    def put(
-        self, item: T, block: bool = True, timeout: Optional[float] = None
-    ) -> None:
+    def put(self, item: T, block: bool = True, timeout: Optional[float] = None) -> None:
         """
         Put an item into the queue.
 
@@ -97,4 +95,3 @@ class QueueProtocol(Protocol[T]):
             True if queue appears full, False otherwise.
         """
         ...
-
