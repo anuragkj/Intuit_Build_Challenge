@@ -1,0 +1,4 @@
+# Runtime dependencies
+# This project uses only Python standard library (no external dependencies)
+# Demonstrates pure functional programming without frameworks
+
