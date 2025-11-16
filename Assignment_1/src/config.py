@@ -5,7 +5,7 @@ This module defines dataclasses for configuring producers, consumers, and
 the overall coordinator.
 """
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Optional
 
 

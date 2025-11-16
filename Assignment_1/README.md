@@ -190,7 +190,6 @@ Assignment_1/
 ├── requirements-dev.txt         # Development dependencies
 ├── pyproject.toml               # Tool configurations
 ├── .gitignore                   # Git ignore rules
-├── Plan.md                      # Design and planning document
 └── README.md                    # This file
 ```
 
