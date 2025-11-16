@@ -81,6 +81,7 @@ pytest
 # Run specific test categories
 pytest tests/test_analyses.py          # Analysis function tests
 pytest tests/test_functional_utils.py  # Functional utilities tests
+pytest tests/test_formatters.py        # Formatter tests
 pytest tests/test_integration.py       # Integration tests
 
 # Run with verbose output
@@ -237,12 +238,13 @@ Assignment_2/
 ├── tests/
 │   ├── __init__.py
 │   ├── conftest.py              # Pytest fixtures
-│   ├── test_data_loader.py     # Data loading tests
+│   ├── test_data_loader.py      # Data loading tests
 │   ├── test_functional_utils.py # Utility function tests
-│   ├── test_aggregations.py    # Aggregation tests
+│   ├── test_aggregations.py     # Aggregation tests
 │   ├── test_grouping.py         # Grouping tests
 │   ├── test_filtering.py        # Filtering tests
 │   ├── test_transformations.py  # Transformation tests
+│   ├── test_formatters.py       # Formatter tests
 │   ├── test_analyses.py         # Analysis function tests
 │   ├── test_integration.py      # End-to-end tests
 │   └── test_data_generator.py   # Generator validation
@@ -269,6 +271,7 @@ Comprehensive testing ensures correctness and robustness:
 - **Grouping**: Single-level, multi-level, nested grouping
 - **Filtering**: Predicates, ranges, composition
 - **Transformations**: Map, flatmap, projection, enrichment
+- **Formatters**: Currency/number/percentage formatting, console output, table alignment
 - **Analyses**: Each of 14 analyses tested independently
 
 #### Integration Tests
@@ -283,8 +286,9 @@ Comprehensive testing ensures correctness and robustness:
 - **95%+ Coverage**: Comprehensive code coverage
 - **Pure Functions**: Easy to test, no mocking needed
 - **Property-Based**: Tests verify mathematical properties
-- **Edge Cases**: Empty, single element, null values
+- **Edge Cases**: Empty, single element, null values, extreme numbers
 - **Type Safety**: mypy validates all type hints
+- **Output Testing**: Formatters tested using pytest's `capsys` fixture to verify console output
 
 ### Running Tests with Coverage
 
@@ -293,7 +297,7 @@ Comprehensive testing ensures correctness and robustness:
 pytest --cov=src --cov-report=term-missing --cov-report=html
 
 # Target: >95% coverage
-# Current: ~95% coverage achieved
+# Achieved: ~95% coverage with comprehensive unit and integration tests
 ```
 
 ## 💡 Dataset Description
