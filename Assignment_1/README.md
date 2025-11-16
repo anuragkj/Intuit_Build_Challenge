@@ -16,7 +16,7 @@ This project implements a robust producer-consumer system with **two queue imple
 - ✅ **Bounded Queue**: Configurable capacity with blocking when full/empty
 - ✅ **Graceful Shutdown**: Sentinel pattern for clean thread termination
 - ✅ **Configurable Behavior**: Dataclass-based configuration for all components
-- ✅ **Comprehensive Testing**: 95%+ test coverage with unit and integration tests
+- ✅ **Comprehensive Testing**: 80%+ test coverage with unit and integration tests
 - ✅ **Type Safety**: Full type hints with mypy strict mode compliance
 - ✅ **Production Ready**: Logging, error handling, metrics collection
 

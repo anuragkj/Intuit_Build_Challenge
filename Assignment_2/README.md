@@ -96,11 +96,23 @@ pytest --cov-report=html
 
 ### System Design
 
-```
-CSV File → Data Loader → Functional Pipeline → Analysis Functions → Console Output
-              ↓              ↓                      ↓                   ↓
-         namedtuples    itertools/functools   groupby/reduce        Formatted
-                        lazy evaluation       aggregations           Results
+```mermaid
+flowchart LR
+    A[CSV File] --> B[Data Loader]
+    B --> C[Functional Pipeline]
+    C --> D[Analysis Functions]
+    D --> E[Console Output]
+    
+    B -.-> B1[namedtuples<br/>immutable data]
+    C -.-> C1[itertools/functools<br/>lazy evaluation]
+    D -.-> D1[groupby/reduce<br/>aggregations]
+    E -.-> E1[Formatted<br/>Results]
+    
+    style A fill:#e1f5ff
+    style B fill:#ffe1e1
+    style C fill:#fff4e1
+    style D fill:#e1ffe1
+    style E fill:#f4e1ff
 ```
 
 **Flow:**
